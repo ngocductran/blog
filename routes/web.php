@@ -70,7 +70,7 @@ Route::prefix('admin')->group(function () {
 });
 
 Route::get('/', [HomeController::class, 'getHome'])->name('home');
-Route::get('{category}/{post}', [HomeController::class, 'showComment'])->name('post.show');
+Route::get('{category}/{post}', [HomeController::class, 'show'])->name('post.show');
 
 Route::post('/comment', [CommentController::class, 'createComment'])->name('comment.create');
 

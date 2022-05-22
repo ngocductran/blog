@@ -112,7 +112,7 @@
 <script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
 <script language="javascript">
     $(document).ready(function() {
-        CKEDITOR.replace('demo'
+        CKEDITOR.replace('demo');
         $('#title').keyup(function(event) {
             var title = $('#title').val();
             var slug = ChangeToSlug(title);
