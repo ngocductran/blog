@@ -109,10 +109,20 @@
 
 <script src="{{asset('assets/admin/dashboard/js/slug.js')}}"></script>
 
-<script src="{{ asset('assets/admin/ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckeditor/ckeditor.js') }}"></script>
+<script src="{{ asset('ckfinder/ckfinder.js') }}"></script>
+
 <script language="javascript">
     $(document).ready(function() {
-        CKEDITOR.replace('demo');
+        CKEDITOR.replace( 'demo', {
+            filebrowserBrowseUrl: '{{ asset('ckfinder/ckfinder.html') }}',
+            filebrowserImageBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Images') }}',
+            filebrowserFlashBrowseUrl: '{{ asset('ckfinder/ckfinder.html?type=Flash') }}',
+            filebrowserUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Files') }}',
+            filebrowserImageUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Images') }}',
+            filebrowserFlashUploadUrl: '{{ asset('ckfinder/core/connector/php/connector.php?command=QuickUpload&type=Flash') }}'
+        } );
+
         $('#title').keyup(function(event) {
             var title = $('#title').val();
             var slug = ChangeToSlug(title);

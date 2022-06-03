@@ -74,3 +74,8 @@ Route::get('{category}/{post}', [HomeController::class, 'show'])->name('post.sho
 
 Route::post('/comment', [CommentController::class, 'createComment'])->name('comment.create');
 
+Route::get('/test', function () {
+    return view('welcome');
+});
+
+Route::post('ck-editor/imgupload', [Controllers::class,'imgupload'])->name('upload');

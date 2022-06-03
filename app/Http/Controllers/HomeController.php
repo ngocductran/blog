@@ -13,7 +13,7 @@ class HomeController extends Controller
         $posts_sline = Post::where('status','1')->take(4)->orderBy('id','desc')->get();
 
         $posts_paginate = Post::orderBy('id','desc')->paginate(8);
-        return view('home.index', ['categorys' => $categorys, 'posts' => $posts, 'posts_sline' => $posts_sline, 'posts_paginate' => $posts_paginate]);
+        return view('home.layout.home', ['categorys' => $categorys, 'posts' => $posts, 'posts_sline' => $posts_sline, 'posts_paginate' => $posts_paginate]);
     }
 
     public function show($category, $post){
